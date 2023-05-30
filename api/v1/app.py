@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module containing Flask applications"""
+""" Module containing Flask application """
 from flask import Flask, jsonify
 from flask_cors import CORS
 from models import storage
@@ -14,13 +14,13 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def teardown(exception):
-   
+    """ closes the storage """
     storage.close()
 
 
 @app.errorhandler(404)
 def page_not_found(exception):
-    
+    """ Returns a JSON formatted 404 status code response """
     return jsonify({'error': 'Not found'}), 404
 
 if __name__ == "__main__":
