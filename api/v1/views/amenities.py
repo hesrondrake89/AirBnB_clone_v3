@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""The module encompasses views that handle Amenity objects"""
+"""The module consists of views that manage operations related to Amenity objects."""
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
@@ -9,7 +9,7 @@ from models.amenity import Amenity
 @app_views.route('/amenities', methods=['GET'], strict_slashes=False)
 def get_amenities():
     """
-    Retrieves a JSON-formatted list of dictionaries that represent all the Amenity objects
+    Obtains a collection of Amenity objects represented as dictionaries in JSON format
     """
     amenities = []
     for amenity in storage.all("Amenity").values():
@@ -39,7 +39,7 @@ def get_amenity_by_id(amenity_id=None):
 @app_views.route('/amenities/<string:amenity_id>', methods=['DELETE'],
                  strict_slashes=False)
 def delete_amenity_by_id(amenity_id=None):
-    """ Deletes a amenity object by amenity_id
+    """ Removes an amenity object based on its amenity_id"""
 
         Args:
             amenity_id (str): The UUID4 string representing a Amenity object.
