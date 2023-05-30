@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module containing views """
+""" The module that contains various views."""
 from api.v1.views import app_views
 from flask import jsonify
 from models import storage
@@ -14,7 +14,7 @@ def status():
 
 @app_views.route("/stats", strict_slashes=False)
 def stats():
-    """ retrieves the number of each objects by type """
+    """ Retrieves the count of each object based on its type """
     class_dict = {"Amenity": "amenities", "City": "cities", "Place": "places",
                   "Review": "reviews", "State": "states", "User": "users"}
     objs = {class_dict[cls]: storage.count(cls) for cls in class_dict}
