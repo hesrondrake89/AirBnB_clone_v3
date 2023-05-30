@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module containing views for Amenity objects """
+"""The module encompasses views that handle Amenity objects"""
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
@@ -9,10 +9,7 @@ from models.amenity import Amenity
 @app_views.route('/amenities', methods=['GET'], strict_slashes=False)
 def get_amenities():
     """
-    Retrieves the list of all Amenity objects
-
-    Returns:
-        A list of dictionaries representing Amenity Objects in JSON format.
+    Retrieves a JSON-formatted list of dictionaries that represent all the Amenity objects
     """
     amenities = []
     for amenity in storage.all("Amenity").values():
