@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module containing Review View """
+""" The module that encompasses the Review View. """
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
@@ -16,8 +16,8 @@ def get_reviews(place_id):
         place_id (str): The UUID4 string representing a Place object.
 
     Returns:
-        List of dictionaries representing Review objects in JSON format.
-        404 error if `place_id` is not linked to any Place object.
+        A JSON-formatted list of dictionaries that represent Review objects
+        Trigger a 404 error if place_id is not associated with any Place object.
     """
     place_obj = storage.get("Place", place_id)
     if place_obj is None:
