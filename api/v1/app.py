@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module containing Flask application """
+""" The module that encompasses the Flask application. """
 from flask import Flask, jsonify
 from flask_cors import CORS
 from models import storage
@@ -20,7 +20,7 @@ def teardown(exception):
 
 @app.errorhandler(404)
 def page_not_found(exception):
-    """ Returns a JSON formatted 404 status code response """
+    """ Provides a JSON-formatted response with a 404 status code. """
     return jsonify({'error': 'Not found'}), 404
 
 if __name__ == "__main__":
