@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module containing User View """
+""" The module that encompasses the User View."""
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
@@ -8,10 +8,10 @@ from models.user import User
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 def get_users():
-    """ Retrieves the list of all User objects.
+    """ Retrieves a list of all User objects.
 
         Returns:
-            List of dictionaries representing User objects in JSON format.
+           A JSON-formatted list of dictionaries that represent User objects.
     """
     users = [user.to_dict() for user in storage.all("User").values()]
     return jsonify(users)
