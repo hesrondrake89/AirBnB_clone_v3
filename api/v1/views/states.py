@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module containing views for State objects """
+"""The module that includes views for handling State objects. """
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
@@ -12,7 +12,7 @@ def get_states():
     Retrieves the list of all State objects
 
     Returns:
-        A list of dictionaries representing State Objects in JSON format.
+        A collection of dictionaries that represent State objects in JSON format.
     """
     states = []
     for state in storage.all("State").values():
