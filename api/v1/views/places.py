@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module containing Place View """
+""" The module that encompasses the Place View """
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage, storage_t
@@ -9,14 +9,14 @@ from models.place import Place
 @app_views.route('/cities/<string:city_id>/places', methods=['GET'],
                  strict_slashes=False)
 def get_places(city_id):
-    """ Retrieves the list of all Place objects of a City.
+    """ Retrieves a list of all Place objects associated with a City.
 
         Args:
             city_id (str): The UUID4 string representing a City object.
 
         Returns:
-            List of dictionaries representing Place objects in JSON format.
-            Raise 404 error if `city_id` is not linked to any City object.
+            A JSON-formatted list of dictionaries that represent Place objects.
+            Trigger a 404 error if city_id is not associated with any City object
     """
     city_obj = storage.get("City", city_id)
     if city_obj is None:
