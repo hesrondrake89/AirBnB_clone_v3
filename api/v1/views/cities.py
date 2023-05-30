@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module containing City View """
+""" The module that includes the City View """
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
@@ -15,8 +15,8 @@ def get_cities(state_id):
             state_id (str): The UUID4 string representing a State object.
 
         Returns:
-            List of dictionaries representing City objects in JSON format.
-            Raise 404 error if `state_id` is not linked to any State object.
+            A JSON-formatted list of dictionaries that represent City objects.
+            Raise a 404 error if state_id is not associated with any State object.
     """
     state_obj = storage.get("State", state_id)
     if state_obj is None:
