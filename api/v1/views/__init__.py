@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Init def for views package"""
+""" The __init__.py file provides the initial setup and definition for the views package."""
 from flask import Blueprint
 
 
