@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module containing Amenity View """
+""" The module that includes the Amenity View. """
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage, storage_t
@@ -9,8 +9,7 @@ from models.amenity import Amenity
 @app_views.route('/places/<string:place_id>/amenities', methods=['GET'],
                  strict_slashes=False)
 def get_place_amenities(place_id):
-    """ Retrieves the list of all Amenity objects associated with a Place
-        object.
+    """ Retrieves a list of all Amenity objects associated with a specific Place object
 
     Args:
         place_id (str): The UUID4 string representing a Place object.
@@ -20,7 +19,7 @@ def get_place_amenities(place_id):
         Amenity objects in JSON format is returned.
         If retrieving from file storage, a list of amenity ids in JSON format
         is returned.
-        404 error if `place_id` is not linked to any Place object.
+        Raise a 404 error if place_id is not associated with any Place object.
     """
     place_obj = storage.get("Place", place_id)
     if place_obj is None:
